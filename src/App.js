@@ -1,23 +1,27 @@
 import logo from './logo.svg';
+// import logoM2i from './assets/logo-m2i.jpg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.bundle';
+import Header from './components/templates/Header';
+import Footer from './components/templates/Footer';
+import Home from './components/pages/Home';
+import Carousel from './components/pages/Carousel';
+import Gallery from './components/pages/Gallery';
+import {BrowserRouter,Switch, Route} from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+      <Header />
+      <Switch>
+        <Route path = "/gallery" component={Gallery} />
+        <Route path = "/carousel" component={Carousel} />
+        <Route path = "/" component={Home} />
+      </Switch>
+      </BrowserRouter>
+      <Footer />
     </div>
   );
 }
